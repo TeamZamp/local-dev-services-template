@@ -50,6 +50,13 @@ run_script() {
   local status_file="${TMP_DIR}/status.txt"
   local mock_bin="${TMP_DIR}/bin"
 
+  rm -f \
+    "${stdout_file}" \
+    "${stderr_file}" \
+    "${status_file}" \
+    "${TMP_DIR}/docker-compose-args.txt" \
+    "${TMP_DIR}/docker-compose-stop-args.txt"
+
   mkdir -p "${mock_bin}"
 
   cat > "${mock_bin}/docker" <<EOF
