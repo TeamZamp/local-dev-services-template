@@ -96,7 +96,7 @@ test_docker_access_error() {
   run_script "${START_SCRIPT}" "deny" "1"
   assert_exit_code "${RUN_STATUS}" 1
   assert_contains "${RUN_STDERR}" "Docker is not accessible."
-  assert_contains "${RUN_STDERR}" 'Run: sudo usermod -aG docker $USER && newgrp docker'
+  assert_contains "${RUN_STDERR}" "Run: sudo usermod -aG docker \$USER && newgrp docker"
 }
 
 test_empty_input() {
